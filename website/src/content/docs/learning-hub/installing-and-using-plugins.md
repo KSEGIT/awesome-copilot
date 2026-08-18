@@ -177,6 +177,24 @@ Pinning to a SHA guarantees that everyone on the team installs plugins from exac
 - **Change control** — review and approve plugin updates before rolling them out team-wide
 - **Stability** — prevent breaking changes in upstream marketplaces from impacting your team without notice
 
+### Auto-Updating Plugins from a Marketplace
+
+First-party plugins already update automatically at the start of every session. For plugins from an `extraKnownMarketplaces` entry (such as your own organization's marketplace), set `"autoUpdate": true` on that entry to get the same behavior:
+
+```json
+{
+  "extraKnownMarketplaces": [
+    {
+      "name": "my-org-plugins",
+      "source": "my-org/internal-plugins",
+      "autoUpdate": true
+    }
+  ]
+}
+```
+
+This keeps everyone on the team using the latest published version of internal plugins without needing to run `copilot plugin update` manually.
+
 ## Installing Plugins
 
 ### From Copilot CLI
